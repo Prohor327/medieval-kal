@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Client/UIBuilder/Stiles/TextStyle.uss?fileID=7433441132597879392&amp;guid=ae1d1311e0bf41a4ab82353b54440583&amp;type=3#TextStyle" />
+    <Style src="project://database/Assets/_Client/UIBuilder/Stiles/ButtonStyle.uss?fileID=7433441132597879392&amp;guid=1e67770679d8ece42bb832df5f7d51ec&amp;type=3#ButtonStyle" />
+    <ui:VisualElement style="position: absolute; height: 1080px; right: 208px; width: 658px; background-color: rgba(0, 0, 0, 0.57); justify-content: center;">
+        <ui:Label tabindex="-1" text="Knight" parse-escape-sequences="true" display-tooltip-when-elided="true" class="Title" style="top: -93px;" />
+        <ui:Button text="Play" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Play" class="allTest buttonFirst buttonFirstHover buttonFirstFocusfocus buttonFirstFocus" />
+        <ui:Button text="Exit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" class="allTest buttonFirst buttonFirstHover buttonFirstFocus" />
+    </ui:VisualElement>
+</ui:UXML>

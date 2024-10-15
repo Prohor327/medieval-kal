@@ -1,0 +1,27 @@
+.buttonFirst {
+    background-color: rgba(255, 244, 244, 0.3);
+    border-left-color: rgb(101, 94, 94);
+    border-right-color: rgb(101, 94, 94);
+    border-top-color: rgb(101, 94, 94);
+    border-bottom-color: rgb(101, 94, 94);
+    border-top-width: 12px;
+    border-right-width: 12px;
+    border-bottom-width: 12px;
+    border-left-width: 12px;
+}
+
+.buttonFirstHover:hover {
+    background-color: rgba(255, 244, 244, 0.76);
+    border-left-color: rgb(171, 164, 164);
+    border-right-color: rgb(171, 164, 164);
+    border-top-color: rgb(171, 164, 164);
+    border-bottom-color: rgb(171, 164, 164);
+}
+
+.buttonFirstFocus:focus {
+    background-color: rgba(0, 0, 0, 0.72);
+    border-left-color: rgb(51, 51, 51);
+    border-right-color: rgb(51, 51, 51);
+    border-top-color: rgb(51, 51, 51);
+    border-bottom-color: rgb(51, 51, 51);
+}

@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Client/UIBuilder/Stiles/ProgressBar.uss?fileID=7433441132597879392&amp;guid=ddd35ad18e7c52f44af876f31b07caac&amp;type=3#ProgressBar" />
+    <Style src="project://database/Assets/_Client/UIBuilder/Stiles/TextStyle.uss?fileID=7433441132597879392&amp;guid=ae1d1311e0bf41a4ab82353b54440583&amp;type=3#TextStyle" />
+    <ui:VisualElement style="flex-grow: 1; position: absolute; width: 1920px; height: 1080px; justify-content: center; align-items: center; align-self: flex-start;">
+        <ui:VisualElement style="flex-grow: 1; position: absolute; width: 5px; height: 5px; background-color: rgb(255, 255, 255);" />
+        <ui:ProgressBar value="100" name="Stamina" class="allTest Stamina" style="left: -618px; width: 633px; top: 400px; height: 79px; color: rgb(255, 255, 255); font-size: 43px; -unity-text-align: middle-center; -unity-font-style: bold;" />
+        <ui:ProgressBar value="100" name="Health" class="Health allTest" style="left: -618px; width: 633px; top: 418px; height: 79px; color: rgb(255, 255, 255); font-size: 43px; -unity-text-align: middle-center; -unity-font-style: bold;" />
+    </ui:VisualElement>
+</ui:UXML>

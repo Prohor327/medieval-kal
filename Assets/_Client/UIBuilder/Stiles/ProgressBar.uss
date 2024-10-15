@@ -1,0 +1,25 @@
+.unity-progress-bar__container {
+    height: auto;
+    max-height: 110px;
+    min-height: 71px;
+}
+
+.unity-progress-bar__background {
+    background-color: rgb(53, 53, 53);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-right-width: 5px;
+    border-left-width: 5px;
+}
+
+.Health .unity-progress-bar__progress {
+    background-color: rgba(255, 0, 0, 0.99);
+}
+
+.Stamina .unity-progress-bar__progress {
+    background-color: rgb(22, 6, 255);
+}

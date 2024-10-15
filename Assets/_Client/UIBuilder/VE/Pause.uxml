@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Client/UIBuilder/Stiles/ButtonStyle.uss?fileID=7433441132597879392&amp;guid=1e67770679d8ece42bb832df5f7d51ec&amp;type=3#ButtonStyle" />
+    <Style src="project://database/Assets/_Client/UIBuilder/Stiles/TextStyle.uss?fileID=7433441132597879392&amp;guid=ae1d1311e0bf41a4ab82353b54440583&amp;type=3#TextStyle" />
+    <ui:VisualElement style="flex-grow: 1; position: absolute; align-self: center; height: 447px; width: 700px; justify-content: center; align-items: center; top: 425px; background-color: rgba(0, 0, 0, 0.7);">
+        <ui:Label tabindex="-1" text="Pause" parse-escape-sequences="true" display-tooltip-when-elided="true" class="Title" style="width: 702px; top: -164px; background-color: rgba(0, 0, 0, 0.7); border-bottom-color: rgba(0, 0, 0, 0.7); border-bottom-width: 18px; -unity-text-align: middle-center; border-top-left-radius: 380px; border-top-right-radius: 380px;" />
+        <ui:Button text="Continue" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Continue" class="allTest buttonFirst buttonFirstHover buttonFirstFocus" style="width: 452px; top: -132px;" />
+        <ui:Button text="Control" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Control" class="allTest buttonFirst buttonFirstHover buttonFirstFocus" style="width: 452px; top: -132px;" />
+        <ui:Button text="Exit to menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" class="allTest buttonFirst buttonFirstHover buttonFirstFocus" style="width: 452px; top: -132px;" />
+    </ui:VisualElement>
+</ui:UXML>

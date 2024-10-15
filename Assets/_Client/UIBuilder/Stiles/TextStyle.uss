@@ -1,0 +1,15 @@
+.Title {
+    -unity-text-align: upper-center;
+    -unity-font: url("project://database/Assets/_Client/Fonts/1/Dark-Wizards.otf?fileID=12800000&guid=775651092fca79243841f4742277dfce&type=3#Dark-Wizards");
+    font-size: 160px;
+    -unity-font-definition: initial;
+    color: rgb(255, 255, 255);
+}
+
+.allTest {
+    -unity-text-align: upper-center;
+    -unity-font-definition: initial;
+    -unity-font: url("project://database/Assets/_Client/Fonts/3/Fleshandblood.ttf?fileID=12800000&guid=e1c5633079dc0f14dab00b50ca7c6a1d&type=3#Fleshandblood");
+    font-size: 54px;
+    color: rgb(255, 255, 255);
+}
