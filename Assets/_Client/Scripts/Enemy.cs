@@ -1,15 +1,15 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour 
 {
     [SerializeField] private float _chaseRange;
     [SerializeField] private float _attackRange;
     [SerializeField] private LayerMask _playerLayer;
+    [SerializeField] private NavMeshAgent _agent;
+    [SerializeField] private Animator _animator;
 
     private SkeletonBigState _state;
-    
-    private Vector3 playerPosition => Player.Instance.transform.position;
-
 
     private void OnDrawGizmosSelected()
     {
@@ -21,25 +21,15 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        bool currentPlayerInChaseRange = Physics.CheckSphere(playerPosition, _chaseRange, _playerLayer);
-        bool currentPlayerInAttackRange = Physics.CheckSphere(playerPosition, _attackRange, _playerLayer);
-        
-        print(currentPlayerInChaseRange);
-        print(currentPlayerInAttackRange);
+        bool currentPlayerInChaseRange = Physics.CheckSphere(transform.position, _chaseRange, _playerLayer);
+        bool currentPlayerInAttackRange = Physics.CheckSphere(transform.position, _attackRange, _playerLayer);
 
-        //print(playerPosition);
-
-        if(currentPlayerInAttackRange && currentPlayerInChaseRange)
-        {
-            //print("Attack");
-        }
+        if(currentPlayerInAttackRange && currentPlayerInChaseRange) {   }
         else if(!currentPlayerInAttackRange && currentPlayerInChaseRange)
         {
-            //print("Chase");
+            _agent.SetDestination(Player.Instance.transform.position);
+            _animator.Play("Walk");
         }
-        else if(!currentPlayerInAttackRange && !currentPlayerInChaseRange)
-        {
-            //print("Idle");
-        }
+        else if(!currentPlayerInAttackRange && !currentPlayerInChaseRange) {   }
     }
 }

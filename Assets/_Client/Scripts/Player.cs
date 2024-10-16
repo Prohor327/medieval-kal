@@ -10,7 +10,7 @@ public class Player : PersistentSingleton<Player>
 
     public PlayerCombatState combatState => _combatState;
     public PlayerMovementState movementState => _movementState;
-    public PlayerMovement playerMovement => _playerMovement;
+    public PlayerMovement Movement => _playerMovement;
 
     private void Start()
     {

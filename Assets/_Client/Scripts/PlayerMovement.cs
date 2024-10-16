@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private float _speed = 6f;
+    [SerializeField] private float _shieldSpeed = 3f;
     [SerializeField] private float _turnSmoothTime = 0.1f;
     [SerializeField] private Transform _camera;
     [SerializeField] private Animator _animator;
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _playerVelocity;
 
     private bool _movePermission = true;
+    private bool _isShield = false;
 
     private void Start() 
     {
@@ -48,7 +50,14 @@ public class PlayerMovement : MonoBehaviour
 
                 Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-                _characterController.Move(moveDir.normalized * _speed * Time.deltaTime);
+                if(_isShield)
+                {
+                    _characterController.Move(moveDir.normalized * _shieldSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    _characterController.Move(moveDir.normalized * _speed * Time.deltaTime);
+                }
             }
         }
 
@@ -67,5 +76,10 @@ public class PlayerMovement : MonoBehaviour
     public void SetMove(bool move)
     {
         _movePermission = move;
+    }
+
+    public void Shield(bool b)
+    {
+        _isShield = b;
     }
 }
