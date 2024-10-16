@@ -1,15 +1,26 @@
 using System;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public class GameUI : UIToolkit
 {
+    [SerializeField] private Pause _pause;
+
     private ProgressBar _hpBar;
     private ProgressBar _stamina;
+    private bool _paused = false;
+
     protected override void Initialize()
     {
         InitializeUI(100, 100);
         base.Initialize();
     }
+
+    public void OpenUI()
+    {
+        Open();
+    }
+
     private void InitializeUI(float maxHealth, float maxStamina)
     {
         _hpBar = UIElement.Q<ProgressBar>("Health");
@@ -37,5 +48,13 @@ public class GameUI : UIToolkit
     {
         progressBar.value = value;
         progressBar.title = Math.Round((decimal)progressBar.value, 2).ToString() + "/" + progressBar.highValue.ToString();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            _pause.OpenPause();
+        }
     }
 }

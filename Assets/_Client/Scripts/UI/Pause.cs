@@ -3,14 +3,19 @@ using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 public class Pause : UIToolkit
 {
+    [SerializeField] private GameUI _gameUI;
+
     protected override void Initialize()
     {
         Button Continue = UIElement.Q<Button>("Continue");
-        //Button Control = UIElement.Q<Button>("Control");
         Button Exit = UIElement.Q<Button>("Exit");
 
-        Continue.clicked += () => Time.timeScale = 1;
-        //Control.clicked += () => 
+        Continue.clicked += () => {
+            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+            UnityEngine.Cursor.visible = false;  
+            Time.timeScale = 1;
+            _gameUI.OpenUI();
+        };
         Exit.clicked += () => SceneManager.LoadScene(0);
         base.Initialize();
     }
@@ -19,5 +24,12 @@ public class Pause : UIToolkit
     {
         Time.timeScale = 0;
         base.Open();
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+        UnityEngine.Cursor.visible = true;
+    }
+
+    public void OpenPause()
+    {
+        Open();
     }
 }

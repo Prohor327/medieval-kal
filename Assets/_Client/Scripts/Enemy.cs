@@ -24,12 +24,20 @@ public class Enemy : MonoBehaviour
         bool currentPlayerInChaseRange = Physics.CheckSphere(transform.position, _chaseRange, _playerLayer);
         bool currentPlayerInAttackRange = Physics.CheckSphere(transform.position, _attackRange, _playerLayer);
 
-        if(currentPlayerInAttackRange && currentPlayerInChaseRange) {   }
+        if(currentPlayerInAttackRange && currentPlayerInChaseRange)
+        {
+            _agent.SetDestination(transform.position);
+            _animator.Play("Attack");
+        }
         else if(!currentPlayerInAttackRange && currentPlayerInChaseRange)
         {
             _agent.SetDestination(Player.Instance.transform.position);
             _animator.Play("Walk");
         }
-        else if(!currentPlayerInAttackRange && !currentPlayerInChaseRange) {   }
+        else if(!currentPlayerInAttackRange && !currentPlayerInChaseRange) 
+        {
+            _agent.SetDestination(transform.position);
+            _animator.Play("Idle");
+        }
     }
 }
