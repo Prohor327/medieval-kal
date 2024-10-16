@@ -16,7 +16,10 @@ public class Pause : UIToolkit
             Time.timeScale = 1;
             _gameUI.OpenUI();
         };
-        Exit.clicked += () => SceneManager.LoadScene(0);
+        Exit.clicked += () => {
+            Destroy(Player.Instance.gameObject);
+            SceneManager.LoadScene(0);
+        };
         base.Initialize();
     }
 

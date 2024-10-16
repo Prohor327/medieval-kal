@@ -40,4 +40,9 @@ public class Enemy : MonoBehaviour
             _animator.Play("Idle");
         }
     }
+
+    public void UpdateView()
+    {
+        transform.LookAt(Player.Instance.transform.position);
+    }
 }
