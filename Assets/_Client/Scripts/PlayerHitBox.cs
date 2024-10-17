@@ -7,6 +7,7 @@ public class PlayerHitBox : HitBox
         if(Player.Instance.combatState == PlayerCombatState.Blocking)
         {
             enemy.Hit();
+            Player.Instance.Impact();
             return;
         }
         _health -= damage;

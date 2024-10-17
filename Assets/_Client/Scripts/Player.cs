@@ -36,4 +36,9 @@ public class Player : PersistentSingleton<Player>
         _animator.SetLayerWeight(1, 0);
         _animator.Play("Death");
     }
+
+    public void Impact()
+    {
+        _animator.Play("Impact");
+    }
 }
