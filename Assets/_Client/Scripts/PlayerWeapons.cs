@@ -22,7 +22,6 @@ public class PlayerWeapons : MonoBehaviour
             Player.Instance.SetCombatState(PlayerCombatState.Block);
             _animator.SetLayerWeight(1, 0.5f);
             _animator.Play("Block");
-            Player.Instance.Movement.Shield(true);
         }
     }
 
@@ -67,6 +66,5 @@ public class PlayerWeapons : MonoBehaviour
     {
         Player.Instance.SetCombatState(PlayerCombatState.Idle);
         _animator.SetLayerWeight(1, 0.0f);
-        Player.Instance.Movement.Shield(false);
     }
 }

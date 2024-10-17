@@ -1,7 +1,4 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour 
 {
@@ -11,17 +8,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _turnSmoothTime = 0.1f;
     [SerializeField] private Transform _camera;
     [SerializeField] private Animator _animator;
+    [SerializeField] private AudioClip[] _footstepClips;
+    [SerializeField] private AudioSource _audioSource;
 
     private float _turnSmoothVelocity;
     private Vector3 _playerVelocity;
-
     private bool _movePermission = true;
-    private bool _isShield = false;
 
     private void Start() 
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;    
+    }
+
+    public void SoundFootstep()
+    {
+        _audioSource.PlayOneShot(_footstepClips[Random.Range(0, _footstepClips.Length)]);
     }
 
     private void Update()
@@ -39,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             _animator.Play("Walk");
         }
 
-        if(direction.magnitude >= 0.1f)
+        if(direction.magnitude >= 0.1f && Player.Instance.movementState != PlayerMovementState.Death)
         {
             if(_movePermission)
             {
@@ -50,11 +52,11 @@ public class PlayerMovement : MonoBehaviour
 
                 Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-                if(_isShield)
+                if(Player.Instance.combatState == PlayerCombatState.Blocking)
                 {
                     _characterController.Move(moveDir.normalized * _shieldSpeed * Time.deltaTime);
                 }
-                else
+                else if(Player.Instance.combatState != PlayerCombatState.Blocking)
                 {
                     _characterController.Move(moveDir.normalized * _speed * Time.deltaTime);
                 }
@@ -76,10 +78,5 @@ public class PlayerMovement : MonoBehaviour
     public void SetMove(bool move)
     {
         _movePermission = move;
-    }
-
-    public void Shield(bool b)
-    {
-        _isShield = b;
     }
 }

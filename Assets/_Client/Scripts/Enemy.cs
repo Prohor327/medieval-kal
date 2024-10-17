@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Assertions.Must;
 
 public class Enemy : MonoBehaviour 
 {
@@ -11,6 +10,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private float _turnSmoothTime = 0.1f;
     [SerializeField] private Collider _collider;
+    [SerializeField] private AudioClip _fallSound;
+    [SerializeField] private AudioSource _audioSource;
 
 
     private SkeletonBigState _state;
@@ -31,9 +32,16 @@ public class Enemy : MonoBehaviour
 
         if(_state != SkeletonBigState.Hit)
         {
-            if(currentPlayerInAttackRange && currentPlayerInChaseRange && _state != SkeletonBigState.Death)
+            if(Player.Instance.movementState == PlayerMovementState.Death && _state != SkeletonBigState.Death)
+            {
+                _state = SkeletonBigState.Idle;
+                _agent.SetDestination(transform.position);
+                _animator.Play("Idle");
+            }
+            else if(currentPlayerInAttackRange && currentPlayerInChaseRange && _state != SkeletonBigState.Death)
             {
                 _state = SkeletonBigState.Attack;
+                _agent.SetDestination(transform.position);
                 _animator.Play("Attack");
             }
             else if(!currentPlayerInAttackRange && currentPlayerInChaseRange && _state != SkeletonBigState.Death)
@@ -72,5 +80,10 @@ public class Enemy : MonoBehaviour
         _collider.enabled = false;
         _state = SkeletonBigState.Death;
         _animator.Play("Death");
+    }
+
+    public void Fall()
+    {
+        _audioSource.PlayOneShot(_fallSound);
     }
 }

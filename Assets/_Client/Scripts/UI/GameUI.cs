@@ -8,11 +8,11 @@ public class GameUI : UIToolkit
 
     private ProgressBar _hpBar;
     private ProgressBar _stamina;
-    private bool _paused = false;
 
     protected override void Initialize()
     {
-        InitializeUI(100, 100);
+        Player.Instance.hitBox.OnTakeDamage += UpdateHealthBarValue;
+        InitializeUI(Player.Instance.hitBox.maxHealth, 10);
         base.Initialize();
     }
 
@@ -39,7 +39,7 @@ public class GameUI : UIToolkit
         UpdateProgressBarWithTitle(value, _hpBar);
     }
 
-    public void UpdateStaminahBarValue(float value)
+    public void UpdateStaminaBarValue(float value)
     {
         UpdateProgressBarWithTitle(value, _stamina);
     }

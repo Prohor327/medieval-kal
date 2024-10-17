@@ -6,7 +6,6 @@ public class EnemyHitBox : HitBox
 
     protected override void Die()
     {
-        print("asdasdas");
         _enemy.Die();
     }
 }

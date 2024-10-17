@@ -1,11 +1,17 @@
+using System.Runtime;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class Player : PersistentSingleton<Player> 
 {
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private Animator _animator;
- 
+    [SerializeField] private AudioClip _hitSound;
+    [SerializeField] private AudioClip _impactSound;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _deathSound;
+
+    public PlayerHitBox hitBox;
+
     private PlayerCombatState _combatState = PlayerCombatState.None;
     private PlayerMovementState _movementState = PlayerMovementState.None;
 
@@ -35,10 +41,16 @@ public class Player : PersistentSingleton<Player>
         _movementState = PlayerMovementState.Death;
         _animator.SetLayerWeight(1, 0);
         _animator.Play("Death");
+        _audioSource.PlayOneShot(_deathSound);
     }
 
     public void Impact()
     {
         _animator.Play("Impact");
+    }
+
+    public void Hit()
+    {
+        _audioSource.PlayOneShot(_hitSound);
     }
 }

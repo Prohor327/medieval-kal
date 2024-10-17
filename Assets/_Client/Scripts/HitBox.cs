@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class HitBox : MonoBehaviour 
 {
-    [SerializeField] protected float _maxHealth;
+    public float maxHealth;
     protected float _health;
 
     private void Start()
     {
-        _health = _maxHealth;
+        _health = maxHealth;
     }
 
     public void TakeDamage(float damage)
