@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Assertions.Must;
 
 public class Enemy : MonoBehaviour 
 {
@@ -8,8 +9,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private LayerMask _playerLayer;
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Animator _animator;
+    [SerializeField] private float _turnSmoothTime = 0.1f;
+
 
     private SkeletonBigState _state;
+
 
     private void OnDrawGizmosSelected()
     {
@@ -24,25 +28,47 @@ public class Enemy : MonoBehaviour
         bool currentPlayerInChaseRange = Physics.CheckSphere(transform.position, _chaseRange, _playerLayer);
         bool currentPlayerInAttackRange = Physics.CheckSphere(transform.position, _attackRange, _playerLayer);
 
-        if(currentPlayerInAttackRange && currentPlayerInChaseRange)
+        if(_state != SkeletonBigState.Hit)
         {
-            _agent.SetDestination(transform.position);
-            _animator.Play("Attack");
-        }
-        else if(!currentPlayerInAttackRange && currentPlayerInChaseRange)
-        {
-            _agent.SetDestination(Player.Instance.transform.position);
-            _animator.Play("Walk");
-        }
-        else if(!currentPlayerInAttackRange && !currentPlayerInChaseRange) 
-        {
-            _agent.SetDestination(transform.position);
-            _animator.Play("Idle");
+            if(currentPlayerInAttackRange && currentPlayerInChaseRange && _state != SkeletonBigState.Death)
+            {
+                _state = SkeletonBigState.Attack;
+                _animator.Play("Attack");
+            }
+            else if(!currentPlayerInAttackRange && currentPlayerInChaseRange && _state != SkeletonBigState.Death)
+            {
+                _state = SkeletonBigState.Walk;
+                _agent.SetDestination(Player.Instance.transform.position);
+                _animator.Play("Walk");
+            }
+            else if(!currentPlayerInAttackRange && !currentPlayerInChaseRange && _state != SkeletonBigState.Death) 
+            {
+                _state = SkeletonBigState.Idle;
+                _agent.SetDestination(transform.position);
+                _animator.Play("Idle");
+            }
         }
     }
 
-    public void UpdateView()
+    public void FinishAttack()
     {
-        transform.LookAt(Player.Instance.transform.position);
+        transform.LookAt(Player.Instance.transform.position);   
+    }
+
+    public void Hit()
+    {
+        _animator.Play("Hit");
+        _state = SkeletonBigState.Hit;
+    }
+
+    public void FinishHit()
+    {
+        _state = SkeletonBigState.Idle;
+    }
+
+    public void Die()
+    {
+        _state = SkeletonBigState.Death;
+        _animator.Play("Die");
     }
 }

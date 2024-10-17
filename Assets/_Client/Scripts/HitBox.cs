@@ -1,11 +1,9 @@
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class HitBox : MonoBehaviour 
 {
-    [SerializeField] private float _maxHealth;
-    private float _health;
+    [SerializeField] protected float _maxHealth;
+    protected float _health;
 
     private void Start()
     {
@@ -17,7 +15,12 @@ public class HitBox : MonoBehaviour
         _health -= damage;
         if (_health <= 0)    
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    protected virtual void Die()
+    {
+        Destroy(gameObject);
     }
 }
