@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Animator _animator;
     [SerializeField] private float _turnSmoothTime = 0.1f;
+    [SerializeField] private Collider _collider;
 
 
     private SkeletonBigState _state;
@@ -68,7 +69,8 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        _collider.enabled = false;
         _state = SkeletonBigState.Death;
-        _animator.Play("Die");
+        _animator.Play("Death");
     }
 }
