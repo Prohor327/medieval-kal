@@ -9,6 +9,7 @@ public class Player : PersistentSingleton<Player>
     [SerializeField] private AudioClip _impactSound;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _deathSound;
+    [SerializeField] private Death _death;
 
     public PlayerHitBox hitBox;
 
@@ -42,6 +43,7 @@ public class Player : PersistentSingleton<Player>
         _animator.SetLayerWeight(1, 0);
         _animator.Play("Death");
         _audioSource.PlayOneShot(_deathSound);
+        _death.DeathPlayer();
     }
 
     public void Impact()
