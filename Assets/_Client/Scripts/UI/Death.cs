@@ -7,6 +7,7 @@ public class Death : UIToolkit
     [SerializeField] private Player _player;
 
     public bool _death;
+    private float _i;
 
     protected override void Initialize()
     {
@@ -34,5 +35,12 @@ public class Death : UIToolkit
         _death = true;
     }
 
-    public void DeathPlayer() => Open();
+    public void DeathPlayer() => StartCoroutine("ShowConteiner");
+
+    IEnumerator ShowConteiner()
+    {
+        yield return new WaitForSeconds(2.7f);
+        Open();
+        StopCoroutine(ShowConteiner());
+    }
 }
