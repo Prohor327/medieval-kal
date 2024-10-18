@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public abstract class UIToolkit : MonoBehaviour
 {
@@ -30,5 +30,10 @@ public abstract class UIToolkit : MonoBehaviour
     {
         _doc.Clear();
         _doc.Add(UIElement);
+    }
+
+    protected void SceneLoader(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 }

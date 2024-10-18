@@ -1,22 +1,37 @@
 using UnityEngine.UIElements;
-using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine;
 
 public class Death : UIToolkit
 {
+    [SerializeField] private Player _player;
+
+    public bool _death;
+
     protected override void Initialize()
     {
         Button restart = UIElement.Q<Button>("Restart");
         Button exit = UIElement.Q<Button>("Exit");
 
-        restart.clicked += () => SceneManager.LoadScene(1);
-        exit.clicked += () => SceneManager.LoadScene(0);
+        restart.clicked += () =>
+        {
+            _player.DestroyPlayer();
+            SceneLoader(1);
+        };
+        exit.clicked += () =>
+        {
+            _player.DestroyPlayer();
+            SceneLoader(0);
+        };
+        _death = false;
     }
 
     protected override void Open()
     {
         base.Open();
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+        UnityEngine.Cursor.visible = true;
+        _death = true;
     }
 
     public void DeathPlayer() => Open();

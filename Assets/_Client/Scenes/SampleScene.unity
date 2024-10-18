@@ -3036,6 +3036,8 @@ MonoBehaviour:
   _UIAsset: {fileID: 9197481963319205126, guid: 4d030d4e2876d9a4b9010a0f5291439a,
     type: 3}
   _gameUI: {fileID: 981269145}
+  _death: {fileID: 981269148}
+  _player: {fileID: 980813398}
 --- !u!114 &981269148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3050,6 +3052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UIAsset: {fileID: 9197481963319205126, guid: 397ad8cbff5b1984e95918d36a72ce03,
     type: 3}
+  _player: {fileID: 980813398}
+  _death: 0
 --- !u!1 &988252314
 GameObject:
   m_ObjectHideFlags: 0

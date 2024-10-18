@@ -55,4 +55,9 @@ public class Player : PersistentSingleton<Player>
     {
         _audioSource.PlayOneShot(_hitSound);
     }
+
+    public void DestroyPlayer()
+    {
+        Destroy(gameObject);
+    }
 }

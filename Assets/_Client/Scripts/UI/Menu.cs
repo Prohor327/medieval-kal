@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.SceneManagement;
 
 public class Menu : UIToolkit
 {
@@ -9,7 +8,7 @@ public class Menu : UIToolkit
         Button play = UIElement.Q<Button>("Play");
         Button exit = UIElement.Q<Button>("Exit");
 
-        play.clicked += () => SceneManager.LoadScene(1);
+        play.clicked += () => SceneLoader(1);
         exit.clicked += Application.Quit;
         base.Initialize();
     }

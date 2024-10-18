@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class Pause : UIToolkit
 {
     [SerializeField] private GameUI _gameUI;
+    [SerializeField] private Death _death;
+    [SerializeField] private Player _player;
 
     protected override void Initialize()
     {
@@ -11,7 +13,11 @@ public class Pause : UIToolkit
         Button Exit = UIElement.Q<Button>("Exit");
 
         Continue.clicked += ClosePause;
-        Exit.clicked += () => SceneManager.LoadScene(0);
+        Exit.clicked += () =>
+        {
+            _player.DestroyPlayer();
+            SceneLoader(0);
+        };
     }
 
     protected override void Open()
@@ -21,10 +27,13 @@ public class Pause : UIToolkit
 
     public void OpenPause()
     {
-        Time.timeScale = 0;
-        UnityEngine.Cursor.lockState = CursorLockMode.None;
-        UnityEngine.Cursor.visible = true;
-        Open();
+        if (_death._death == false)
+        {
+            Time.timeScale = 0;
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
+            UnityEngine.Cursor.visible = true;
+            Open();
+        }
     }
 
     private void ClosePause()
