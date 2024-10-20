@@ -1343,6 +1343,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8dd8c3d561a1d5ae48dd5c058926caa5, type: 3}
   - {fileID: 8300000, guid: 8567743ec8d48c1ec818b9f95888a16a, type: 3}
   _audioSource: {fileID: 2848488421966791762}
+  _isCutScene: 0
 --- !u!143 &4589646529960735234
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1455,7 +1456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c801bf009d820d6b902b32a8f26c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 50
 --- !u!82 &2848488421966791762
 AudioSource:
   m_ObjectHideFlags: 0
