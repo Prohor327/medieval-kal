@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioClip[] _footstepClips;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private bool _isCutScene = false;
 
     private float _turnSmoothVelocity;
     private Vector3 _playerVelocity;
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (_isCutScene == true) return;
         Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
         if(direction == Vector3.zero && Player.Instance.movementState == PlayerMovementState.Walk)
