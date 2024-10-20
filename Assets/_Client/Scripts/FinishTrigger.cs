@@ -6,6 +6,6 @@ public class FinishTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        _finish.Open();
+        _finish.OpenUI();
     }
 }

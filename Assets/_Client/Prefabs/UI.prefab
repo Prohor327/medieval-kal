@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1917434707498257402}
   - component: {fileID: 1472407565474007346}
   - component: {fileID: 5336455643605715714}
+  - component: {fileID: -965336629643383203}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -99,3 +100,17 @@ MonoBehaviour:
     type: 3}
   _player: {fileID: 0}
   _death: 0
+--- !u!114 &-965336629643383203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8937541684144109393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7197ea182c3f437368ea5c331a86b9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIAsset: {fileID: 9197481963319205126, guid: a8dafd5db192ad4bb8b913267b0d6cc2,
+    type: 3}

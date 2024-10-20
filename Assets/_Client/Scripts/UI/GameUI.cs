@@ -7,7 +7,6 @@ public class GameUI : UIToolkit
     [SerializeField] private Pause _pause;
 
     private ProgressBar _hpBar;
-    private ProgressBar _stamina;
 
     protected override void Initialize()
     {
@@ -24,14 +23,11 @@ public class GameUI : UIToolkit
     private void InitializeUI(float maxHealth, float maxStamina)
     {
         _hpBar = UIElement.Q<ProgressBar>("Health");
-        _stamina = UIElement.Q<ProgressBar>("Stamina");
 
         _hpBar.lowValue = 0;
         _hpBar.highValue = maxHealth;
         _hpBar.title = _hpBar.highValue.ToString() + "/" + _hpBar.highValue.ToString();
-        _stamina.lowValue = 0;
-        _stamina.highValue = maxStamina;
-        _stamina.title = _stamina.highValue.ToString() + "/" + _stamina.highValue.ToString();
+    
     }
 
     public void UpdateHealthBarValue(float value)
@@ -39,10 +35,6 @@ public class GameUI : UIToolkit
         UpdateProgressBarWithTitle(value, _hpBar);
     }
 
-    public void UpdateStaminaBarValue(float value)
-    {
-        UpdateProgressBarWithTitle(value, _stamina);
-    }
 
     private void UpdateProgressBarWithTitle(float value, ProgressBar progressBar)
     {
