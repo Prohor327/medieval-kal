@@ -19,8 +19,7 @@ public class FinishUI : UIToolkit
         base.Open();
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         UnityEngine.Cursor.visible = true;
-    }    
-
+    }
     public void OpenUI()
     {
         Open();

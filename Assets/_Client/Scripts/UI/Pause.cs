@@ -5,7 +5,6 @@ public class Pause : UIToolkit
 {
     [SerializeField] private GameUI _gameUI;
     [SerializeField] private Death _death;
-    [SerializeField] private Player _player;
 
     protected override void Initialize()
     {
@@ -15,7 +14,7 @@ public class Pause : UIToolkit
         Continue.clicked += ClosePause;
         Exit.clicked += () =>
         {
-            _player.DestroyPlayer();
+            Player.Instance.DestroyPlayer();
             SceneLoader(0);
         };
     }
