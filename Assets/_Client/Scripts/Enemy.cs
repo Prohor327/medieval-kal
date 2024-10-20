@@ -61,6 +61,7 @@ public class Enemy : MonoBehaviour
 
     public void FinishAttack()
     {
+        print("asdasda");
         transform.LookAt(Player.Instance.transform.position);   
     }
 
