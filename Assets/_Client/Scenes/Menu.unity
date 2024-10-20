@@ -5676,6 +5676,7 @@ GameObject:
   - component: {fileID: 1115108499}
   - component: {fileID: 1115108498}
   - component: {fileID: 1115108497}
+  - component: {fileID: 1115108500}
   m_Layer: 0
   m_Name: Cam
   m_TagString: Untagged
@@ -5793,6 +5794,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -8.238, y: 156.273, z: 1.303}
+--- !u!81 &1115108500
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115108496}
+  m_Enabled: 1
 --- !u!1001 &1130392415
 PrefabInstance:
   m_ObjectHideFlags: 0
